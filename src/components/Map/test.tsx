@@ -26,8 +26,8 @@ describe('<Map />', () => {
       name: 'Cabo Frio',
       slug: 'Cabo Frio',
       location: {
-        latitude: 564,
-        longitude: -674,
+        latitude: 54,
+        longitude: -4,
       }
     }
 
