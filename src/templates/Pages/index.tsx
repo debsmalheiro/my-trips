@@ -4,15 +4,20 @@ import LinkWrapper from 'components/LinkWrapper'
 
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
-const PageTemplate = () => (
+export type PageTemplateProps = {
+  heading: string;
+  body: string;
+}
+
+const PageTemplate = ({heading, body}: PageTemplateProps) => (
   <S.Content>
     <LinkWrapper href="/">
       <CloseOutline size={32} aria-label="Close" />
     </LinkWrapper>
 
-    <S.Heading>My Trips</S.Heading>
+    <S.Heading>{heading}</S.Heading>
     <S.Body>
-      <p>Texto</p>
+      <div dangerouslySetInnerHTML={{__html: body}} />
     </S.Body>
   </S.Content>
 )
