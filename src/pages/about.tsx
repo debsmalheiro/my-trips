@@ -1,20 +1,38 @@
 import client from 'graphql/client'
 
 import { GET_PAGES } from 'graphql/queries'
+import { useRouter } from 'next/dist/client/router'
+import { route } from 'next/dist/server/router'
 
-import AboutTemplate from 'templates/About'
+import PageTemplate from 'templates/Pages'
 
 export default function AboutPage() {
-  <AboutTemplate />
+  const router = useRouter()
+
+  if(router.isFallback) return null
+
+  return <PageTemplate />
 }
 
-export const getStaticProps = async () => {
-  const { pages } = await client.request(GET_PAGES)
-  console.log(pages)
+export const getStaticPaths = async () => {
+  const {pages} = await client.request(GET_PAGES, {first: 3})
+
+  const paths = pages.map(({ slug }) => (
+    params: { slug }
+  ))
 
   return {
-    props: {
-      
-    }
+    paths, fallback: true
   }
 }
+
+// export const getStaticProps = async () => {
+//   const { pages } = await client.request(GET_PAGES)
+//   console.log(pages)
+
+//   return {
+//     props: {
+
+//     }
+//   }
+// }
