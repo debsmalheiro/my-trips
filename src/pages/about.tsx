@@ -1,5 +1,20 @@
-import AboutTemplate from "templates/About";
+import client from 'graphql/client'
 
-const About = () => (<AboutTemplate />)
+import { GET_PAGES } from 'graphql/queries'
 
-export default About
+import AboutTemplate from 'templates/About'
+
+export default function AboutPage() {
+  <AboutTemplate />
+}
+
+export const getStaticProps = async () => {
+  const { pages } = await client.request(GET_PAGES)
+  console.log(pages)
+
+  return {
+    props: {
+      
+    }
+  }
+}
