@@ -45,9 +45,9 @@ const CustomTileLayer = () => {
 
 const markerIcon = new L.Icon({
   iconUrl: '/img/icon-192.png',
-  iconSize: [40,40],
-  iconAnchor: [20,40],
-  popupAnchor: [0,-40]
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40]
 })
 
 const Map = ({ places }: MapProps) => {
@@ -67,9 +67,10 @@ const Map = ({ places }: MapProps) => {
       >
         <MapConsumer>
           {(map) => {
-            const width = window.innerWidth ||
-            document.documentElement.clientWidth ||
-            document.body.clientWidth
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth
 
             if (width < 768) {
               map.setMinZoom(2)

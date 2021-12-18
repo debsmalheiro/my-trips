@@ -17,7 +17,7 @@ describe('<Map />', () => {
       slug: 'sao pedro',
       location: {
         latitude: 0,
-        longitude: 0,
+        longitude: 0
       }
     }
 
@@ -27,7 +27,7 @@ describe('<Map />', () => {
       slug: 'Cabo Frio',
       location: {
         latitude: 54,
-        longitude: -4,
+        longitude: -4
       }
     }
 
